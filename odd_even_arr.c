@@ -4,10 +4,10 @@
 int main(int argc, char* argv[]){
 
 	int number_of_nums_to_enter, number, i, j;
-	int even_pos = 0, even_neg = 0, odd_pos = 0, odd_neg = 0;
+	float even_pos = 0, even_neg = 0, odd_pos = 0, odd_neg = 0;
 	int max;
 	int min;
-	int average = 0;
+	float average = 0;
 	int sum = 0;
 
 
@@ -53,11 +53,16 @@ int main(int argc, char* argv[]){
 			min = arr[0][i];
 		}
 	}
+	if(even_pos == 0){
+		printf("Cannot calculate average for a row with no elements")
+	}
+	else{
         average = sum/even_pos;
+		printf("Average value of row 1: %d\n", average);
+	}
 
 	printf("\nLargest even positive number: %d\n", max);
 	printf("Smallest even positive number: %d\n", min);
-	printf("Average value of row 1: %d\n", average);
 
 
 	average = 0;
@@ -76,11 +81,16 @@ int main(int argc, char* argv[]){
 			min = arr[1][i];
 		}
 	}
-	average = sum/even_neg;
+	if(even_neg == 0){
+		printf("Cannot calculate average for a row with no elements")
+	}
+	else{
+        average = sum/even_neg;
+		printf("Average value of row 2: %d\n", average);
+	}
 
 	printf("Largest even negative number: %d\n", max);
 	printf("Smallest even negative number: %d\n", min);
-	printf("Average value of row 2: %d\n", average);
 
 	average = 0;
 	max = arr[2][0];
@@ -97,11 +107,16 @@ int main(int argc, char* argv[]){
 			min = arr[2][i];
 		}
 	}
-	average = sum/odd_pos;
+	if(odd_pos == 0){
+		printf("Cannot calculate average for a row with no elements")
+	}
+	else{
+        average = sum/odd_pos;
+		printf("Average value of row 3: %d\n", average);
+	}
 
 	printf("Largest odd positive number: %d\n", max);
 	printf("Smallest odd positive number: %d\n", min);
-	printf("Average value of row 3: %d\n", average);
 
 	average = 0;
 	max = arr[3][0];
@@ -118,11 +133,16 @@ int main(int argc, char* argv[]){
 			min = arr[3][i];
 		}
 	}
-	average = sum/odd_neg;
-
+	if(odd_neg == 0){
+		printf("Cannot calculate average for a row with no elements")
+	}
+	else{
+        average = sum/odd_neg;
+		printf("Average value of row 4: %d\n", average);
+	}
+	
 	printf("Largest odd negative number: %d\n", max);
 	printf("Smallest odd negative number: %d\n", min);
-	printf("Average value of row 4: %d\n", average);
 
 	return 0;
 }
