@@ -4,7 +4,7 @@
 int main(int argc, char* argv[]){
 
 	int number_of_nums_to_enter, number, i, j;
-	float even_pos = 0, even_neg = 0, odd_pos = 0, odd_neg = 0;
+	int even_pos = 0, even_neg = 0, odd_pos = 0, odd_neg = 0;
 	int max;
 	int min;
 	float average = 0;
@@ -54,18 +54,20 @@ int main(int argc, char* argv[]){
 		}
 	}
 	if(even_pos == 0){
-		printf("Cannot calculate average for a row with no elements")
+		printf("\nCannot calculate average for a row with no elements\n");
+		printf("Max value not present for empty rows\n");
+		printf("Min value not present for empty rows\n");
 	}
 	else{
-        average = sum/even_pos;
-		printf("Average value of row 1: %d\n", average);
+		average = sum/(even_pos * 1.0);
+		printf("\nLargest even positive number: %d\n", max);
+		printf("Smallest even positive number: %d\n", min);
+		printf("Average value of row 1: %.2f\n", average);
 	}
 
-	printf("\nLargest even positive number: %d\n", max);
-	printf("Smallest even positive number: %d\n", min);
 
 
-	average = 0;
+	average = 0.0;
 	max = arr[1][0];
 	min = arr[1][0];
 	sum = arr[1][0];
@@ -73,7 +75,6 @@ int main(int argc, char* argv[]){
 
 	for(i = 1; i < even_neg; i++){
 		sum = sum + arr[1][i];
-
 		if(arr[1][i] > max){
 			max = arr[1][i];
 		}
@@ -82,24 +83,25 @@ int main(int argc, char* argv[]){
 		}
 	}
 	if(even_neg == 0){
-		printf("Cannot calculate average for a row with no elements")
+		printf("Cannot calculate average for a row with no elements\n");
+		printf("Max value not present for empty rows\n");
+		printf("Min value not present for empty rows\n");
 	}
 	else{
-        average = sum/even_neg;
-		printf("Average value of row 2: %d\n", average);
+        average = sum/(even_neg * 1.0);
+		printf("Largest even negative number: %d\n", max);
+		printf("Smallest even negative number: %d\n", min);
+		printf("Average value of row 2: %.2f\n", average);
 	}
 
-	printf("Largest even negative number: %d\n", max);
-	printf("Smallest even negative number: %d\n", min);
 
-	average = 0;
+	average = 0.0;
 	max = arr[2][0];
 	min = arr[2][0];
 	sum = arr[2][0];
 
 	for(i = 1; i < odd_pos; i++){
 		sum = sum + arr[2][i];
-
 		if(arr[2][i] > max){
 			max = arr[2][i];
 		}
@@ -108,23 +110,26 @@ int main(int argc, char* argv[]){
 		}
 	}
 	if(odd_pos == 0){
-		printf("Cannot calculate average for a row with no elements")
+		printf("Cannot calculate average for a row with no elements\n");
+		printf("Max value not present for empty rows\n");
+		printf("Min value not present for empty rows\n");
 	}
 	else{
-        average = sum/odd_pos;
-		printf("Average value of row 3: %d\n", average);
+        average = sum/(odd_pos * 1.0);
+		printf("Largest odd positive number: %d\n", max);
+		printf("Smallest odd positive number: %d\n", min);
+		printf("Average value of row 3: %.2f\n", average);
 	}
 
-	printf("Largest odd positive number: %d\n", max);
-	printf("Smallest odd positive number: %d\n", min);
 
-	average = 0;
+	average = 0.0;
 	max = arr[3][0];
 	min = arr[3][0];
 	sum = arr[3][0];
 
 	for(i = 1; i < odd_neg; i++){
 		sum = sum + arr[3][i];
+		printf("sum is: %d\n", sum);
 
 		if(arr[3][i] > max){
 			max = arr[3][i];
@@ -133,16 +138,18 @@ int main(int argc, char* argv[]){
 			min = arr[3][i];
 		}
 	}
+
 	if(odd_neg == 0){
-		printf("Cannot calculate average for a row with no elements")
+		printf("Cannot calculate average for a row with no elements\n");
+		printf("Max value not present for empty rows\n");
+		printf("Min value not present for empty rows\n");
 	}
 	else{
-        average = sum/odd_neg;
-		printf("Average value of row 4: %d\n", average);
+        average = sum/(odd_neg * 1.0);
+		printf("Largest odd negative number: %d\n", max);
+		printf("Smallest odd negative number: %d\n", min);
+		printf("Average value of row 4: %.2f\n", average);
 	}
 	
-	printf("Largest odd negative number: %d\n", max);
-	printf("Smallest odd negative number: %d\n", min);
-
 	return 0;
 }
