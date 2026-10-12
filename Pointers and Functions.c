@@ -2,11 +2,10 @@
 #define FK_SUM 15 // sum of digits in faculty number
 
 void custom_GCD(int m, int n, int* result){
-    int remainder;
     int temp;
 
     if(m == 0 && n == 0){
-        printf("Invalid input data\n");
+        *result = 0;
         return;
     }
 
@@ -23,14 +22,12 @@ void custom_GCD(int m, int n, int* result){
     while (m != n){
         if(m > n){
             temp = n;
-            remainder = m % n;
             n = m - n;
             m = temp;
             *result = m;
         }
         else if(n > m){
             temp = m;
-            remainder = n % m;
             m = n - m;
             n = temp;
             *result = n;
