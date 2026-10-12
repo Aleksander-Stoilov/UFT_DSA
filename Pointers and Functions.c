@@ -68,6 +68,7 @@ int main(int argc, char *argv[]){
     for (int i = 0; i < FK_SUM; i++){
         printf("%d, ", results[1][i]);
     }
+    printf("\n");
 
     return 0;
 }
