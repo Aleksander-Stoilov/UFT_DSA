@@ -5,6 +5,21 @@ void custom_GCD(int m, int n, int* result){
     int remainder;
     int temp;
 
+    if(m == 0 && n == 0){
+        printf("Invalid input data\n");
+        return;
+    }
+
+    if(m != 0 && n == 0){
+        *result = m;
+        return;
+    }
+
+    if(m == 0 && n != 0){
+        *result = n;
+        return;
+    }
+
     while (m != n){
         if(m > n){
             temp = n;
