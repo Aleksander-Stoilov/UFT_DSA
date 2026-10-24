@@ -2,11 +2,14 @@
 #define FK_SUM 15 // sum of digits in faculty number
 
 void custom_GCD(int m, int n, int* result){
-    int remainder;
     int temp;
 
     if(m == 0 && n == 0){
+<<<<<<< HEAD
         printf("Invalid input data\n");
+=======
+        *result = 0;
+>>>>>>> 1c14d09b30f0a43c3b457d50be66b0be534372c7
         return;
     }
 
@@ -23,14 +26,12 @@ void custom_GCD(int m, int n, int* result){
     while (m != n){
         if(m > n){
             temp = n;
-            remainder = m % n;
             n = m - n;
             m = temp;
             *result = m;
         }
         else if(n > m){
             temp = m;
-            remainder = n % m;
             m = n - m;
             n = temp;
             *result = n;
@@ -42,13 +43,13 @@ void custom_GCD(int m, int n, int* result){
     }  
 }
 int euclid_GCD(int m, int n){
-	int r;
+    int r;
         while (n != 0){
             r = m % n;
             m = n;
             n = r;
         }
-	return m;
+    return m;
 }
 
 int main(int argc, char *argv[]){
@@ -71,6 +72,7 @@ int main(int argc, char *argv[]){
     for (int i = 0; i < FK_SUM; i++){
         printf("%d, ", results[1][i]);
     }
+    printf("\n");
 
     return 0;
 }
