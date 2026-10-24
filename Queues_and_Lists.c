@@ -2,20 +2,22 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define n 30
+#define n 10
 #define true 1
+#define string_length 15
 #define false 0
 
-typedef struct node node;
+char queue[n][string_length];
+int begin = -1, end = -1, first_pass = 1;
 
-struct node{
+typedef struct node{
 	char data;
 	node* next;
-};
+} node;
 
-node* List;
+node* List = NULL;
 
-node* Find(int value){
+node* Find(char value){
 	node* p;
 	int found = 0;
 	p = List;
@@ -26,12 +28,10 @@ node* Find(int value){
 	return p;
 }
 
-node* FindPrev(int value){
+node* FindPrev(char value){
 	node *p;
 	p = List;
-	while (p != NULL && p->next->data != value){
-		p = p->next;
-	}
+	while (p != NULL && p->next->data != value)	p = p->next;
 	return p;
 }
 
@@ -55,38 +55,31 @@ void Delete(char c){
 }
 
 void Add(node *p, char c){
-	node* q;
-	q = malloc(sizeof(node));
-	if(q == NULL) printf("Not enough memory!");
-	else {
-		q->data = c;
-		if(List == p){
-			q->next = List;
-			List = q;
-		}
-		else{
-			q->next = p->next;
-			p->next = q;
-		}
-	}	
+    node* q = malloc(sizeof(node));
+
+	if (q == NULL) printf("Not enough memory!");
+	q->data = c;
+	q->next = NULL;
+
+    if (List == NULL || q->data > List->data){
+		q->next = List;
+		List = q;
+    }
+    else{
+		while(p->next != NULL && p->next->data > q->data) p = p->next;
+        q->next = p->next;
+        p->next = q;
+    }
 }
 
-char queue[n][15];
-int begin = -1, end = -1;
-
 char* Read(){
-
 	if(end == -1){
 		printf("Queue is empty");
 		return "";
 	}
 	else{
-		if(end == begin){
-			end = 0;
-		}
-		else{
-			begin = (begin % n) + 1;
-		}
+		if(end == begin) end = 0;
+		else begin = (begin % n) + 1;
 		return queue[begin];
 	}
 }
@@ -98,7 +91,7 @@ void Write(char c[]){
 	}
 	else{
 		end = (end % n) + 1;
-		
+
 		if(end == begin){
 			printf("Queue is full");
 			end = end - 1;
@@ -119,7 +112,32 @@ int main(){
 		Write(input);
 		count++;
 	}
+	
+    for (int i = 0; i < count; i++) {
+        for(int j = 0; j < string_length; j++){
+            if(queue[i][j] == '\0') break;
+			Add(List, queue[i][j]);
+        }
+    }
 
-	for(int i = 0; i < count; i++)
-	printf("String from read: %s\n", Read());
+	for(int i = 0; i < count; i++) printf("String from read: %s\n", Read());
+
+    node* start;
+    start = malloc(sizeof(node));
+    start = List;
+	printf("Data inside the linked list: ");
+
+    while(start != NULL){
+        printf("%c, ", start->data);
+		start = start->next;
+    }
+
+	start = List;
+	printf("\n");
+
+	while(start != NULL){
+		printf("%c - %p\n", start->data, start->next);
+		start = start->next;
+	}
+
 }
