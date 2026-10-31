@@ -8,7 +8,7 @@
 #define false 0
 
 char queue[n][string_length];
-int begin = -1, end = -1, first_pass = 1;
+int begin = -1, end = -1;
 
 typedef struct node{
 	char data;
@@ -16,43 +16,6 @@ typedef struct node{
 } node;
 
 node* List = NULL;
-
-node* Find(char value){
-	node* p;
-	int found = 0;
-	p = List;
-	while(p != NULL && !found){
-		if(p->data == value) found = 1;
-		else p = p->next;
-	}
-	return p;
-}
-
-node* FindPrev(char value){
-	node *p;
-	p = List;
-	while (p != NULL && p->next->data != value)	p = p->next;
-	return p;
-}
-
-void Delete(char c){
-	node *p, *t;
-
-	p = FindPrev(c);
-
-	if(p == NULL) printf("The list is empty!");
-	else {
-		if(p == List){
-			List = p->next;
-			free(p);
-		}
-		else {
-			t = p->next;
-			p->next = t->next;
-			free(p);
-		}
-	}
-}
 
 void Add(node *p, char c){
     node* q = malloc(sizeof(node));
@@ -112,7 +75,7 @@ int main(){
 		Write(input);
 		count++;
 	}
-	
+
     for (int i = 0; i < count; i++) {
         for(int j = 0; j < string_length; j++){
             if(queue[i][j] == '\0') break;
@@ -139,5 +102,4 @@ int main(){
 		printf("%c - %p\n", start->data, start->next);
 		start = start->next;
 	}
-
 }
