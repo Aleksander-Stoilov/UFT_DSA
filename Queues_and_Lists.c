@@ -8,7 +8,7 @@
 #define false 0
 
 char queue[n][string_length];
-int begin = -1, end = -1;
+int begin = -1, end = -1, first_pass = 1;
 
 typedef struct node{
 	char data;
@@ -16,7 +16,6 @@ typedef struct node{
 } node;
 
 node* List = NULL;
-
 void Add(node *p, char c){
     node* q = malloc(sizeof(node));
 
@@ -75,7 +74,7 @@ int main(){
 		Write(input);
 		count++;
 	}
-
+	
     for (int i = 0; i < count; i++) {
         for(int j = 0; j < string_length; j++){
             if(queue[i][j] == '\0') break;
@@ -102,4 +101,5 @@ int main(){
 		printf("%c - %p\n", start->data, start->next);
 		start = start->next;
 	}
+
 }
