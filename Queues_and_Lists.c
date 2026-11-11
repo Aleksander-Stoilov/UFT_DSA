@@ -15,6 +15,7 @@ typedef struct node{
 	node* next;
 } node;
 
+
 node* List = NULL;
 void Add(node *p, char c){
     node* q = malloc(sizeof(node));
@@ -87,13 +88,12 @@ int main(){
     node* start;
     start = malloc(sizeof(node));
     start = List;
-	printf("Data inside the linked list: ");
+    printf("%d, ",);
 
     while(start != NULL){
         printf("%c, ", start->data);
 		start = start->next;
     }
-
 	start = List;
 	printf("\n");
 

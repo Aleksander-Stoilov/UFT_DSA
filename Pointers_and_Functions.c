@@ -5,11 +5,8 @@ void custom_GCD(int m, int n, int* result){
     int temp;
 
     if(m == 0 && n == 0){
-<<<<<<< HEAD
         printf("Invalid input data\n");
-=======
         *result = 0;
->>>>>>> 1c14d09b30f0a43c3b457d50be66b0be534372c7
         return;
     }
 
