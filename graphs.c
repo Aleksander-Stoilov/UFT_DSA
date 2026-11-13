@@ -12,14 +12,14 @@ int main(){
 
 	float adjacency_matrix[8][8];
 	float edge_weight;
-	int in_valence, out_valence;
+	int in_valence = 0, out_valence = 0;
 
-	for(int i = 0; i < 8; i++){
-		// printf("Enter edge wegiths for vertex %d [15-17] ", i);
-		for(int j = 0; j < 8; j++){
-			if(fscanf(file, "%f", &edge_weight) == 1) adjacency_matrix[i][j] = edge_weight;
-		}
-	}
+        for(int i = 0; i < 8; i++){
+            // printf("Enter edge wegiths for vertex %d [15-17] ", i);
+            for(int j = 0; j < 8; j++){
+                if(fscanf(file, "%f", &edge_weight) == 1) adjacency_matrix[i][j] = edge_weight;
+            }
+        }
 
 	for(int i = 0; i < 8; i++){
 		printf("graph row[%d]", i+1);
