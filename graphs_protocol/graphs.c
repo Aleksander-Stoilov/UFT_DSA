@@ -20,6 +20,7 @@ int main(){
                 if(fscanf(file, "%f", &edge_weight) == 1) adjacency_matrix[i][j] = edge_weight;
             }
         }
+        fclose(file);
 
 	for(int i = 0; i < 8; i++){
 		printf("graph row[%d]", i+1);
